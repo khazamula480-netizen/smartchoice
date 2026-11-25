@@ -362,7 +362,7 @@ footer a { color: var(--gold); margin: 0 8px; text-decoration: none; }
   <div class="info-section">
     <h2>Contact Us</h2>
     <p>Have a question, suggestion or business enquiry?</p>
-    <p>Email: <a href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a></p>
+    <p>Email: <a href=”khazamula480@gmail.com”>YOUR_EMAIL@example.com</a></p>
     <p>Replace the example email with your real business email.</p>
   </div>
 
