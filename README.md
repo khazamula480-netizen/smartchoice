@@ -1,173 +1,191 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smart Choice | Shop Smarter</title>
-<meta name="description" content="Discover smart shopping recommendations, technology, fashion, home essentials and product comparisons.">
+
+<title>Smart Choice | Make Smarter Choices</title>
+
+<meta name="description" content="Discover useful products, smart shopping ideas and buying guides with Smart Choice.">
 
 <style>
-:root {
-  --navy: #101d35;
-  --gold: #d6ae58;
-  --light: #f5f6f8;
-  --white: #fff;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+
 body {
   font-family: Arial, sans-serif;
-  background: var(--light);
-  color: #263348;
+  background: #f5f7fb;
+  color: #172033;
   line-height: 1.6;
 }
+
 header {
-  background: var(--navy);
+  background: #142d59;
   color: white;
-  padding: 18px 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
+  padding: 20px;
+  text-align: center;
 }
-.logo { font-size: 25px; font-weight: bold; }
-.logo span { color: var(--gold); }
-nav { display: flex; gap: 16px; flex-wrap: wrap; }
-nav a { color: white; text-decoration: none; font-size: 14px; }
-nav a:hover { color: var(--gold); }
+
+header h1 {
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+nav {
+  margin-top: 12px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 8px;
+  font-size: 14px;
+}
 
 .hero {
-  background: linear-gradient(120deg,#101d35,#29496b);
+  background: linear-gradient(135deg,#142d59,#3474c5);
   color: white;
   text-align: center;
-  padding: 85px 20px;
+  padding: 75px 20px;
 }
-.hero h1 { font-size: clamp(35px,6vw,58px); }
-.hero h1 span { color: var(--gold); }
-.hero p { max-width: 650px; margin: 15px auto 25px; }
+
+.hero h2 {
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: auto;
+}
+
 .btn {
   display: inline-block;
-  background: var(--gold);
-  color: var(--navy);
-  padding: 12px 22px;
-  border: 0;
-  border-radius: 5px;
+  background: #f4bd45;
+  color: #142d59;
+  padding: 13px 25px;
+  margin-top: 20px;
+  border-radius: 7px;
   text-decoration: none;
   font-weight: bold;
-  cursor: pointer;
 }
-.btn:hover { opacity: .85; }
 
-.container { max-width: 1150px; margin: auto; padding: 55px 20px; }
-.section-title { text-align: center; margin-bottom: 30px; }
-.section-title h2 { color: var(--navy); font-size: 29px; }
-.section-title p { color: #667085; }
-
-.categories {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 15px;
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 45px 20px;
 }
-.category {
-  background: white;
-  border-radius: 9px;
-  padding: 23px 10px;
+
+h2.section-title {
   text-align: center;
-  text-decoration: none;
-  color: var(--navy);
-  font-weight: bold;
-  box-shadow: 0 3px 12px #00000008;
-}
-.category span { display: block; font-size: 36px; }
-.category:hover { outline: 2px solid var(--gold); }
-
-.search-wrap { max-width: 600px; margin: 0 auto 25px; }
-.search-wrap input {
-  width: 100%;
-  padding: 14px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 16px;
-}
-.filters {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 9px;
   margin-bottom: 25px;
+  font-size: 28px;
 }
-.filter {
-  border: 1px solid #ddd;
-  background: white;
-  padding: 9px 15px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-.filter.active { background: var(--navy); color: white; }
 
+.categories,
 .products {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
   gap: 22px;
 }
-.product {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 3px 15px #0000000c;
-}
-.product-image {
-  height: 165px;
-  display: grid;
-  place-items: center;
-  background: #e9edf3;
-  font-size: 65px;
-}
-.product-info { padding: 20px; }
-.product-info h3 { color: var(--navy); margin-bottom: 8px; }
-.product-info p { color: #667085; font-size: 14px; margin-bottom: 15px; }
-.product-info .btn { width: 100%; text-align: center; }
-.pending { display: block; font-size: 12px; color: #94702c; margin-top: 8px; }
-.no-results { text-align: center; padding: 25px; display: none; }
 
-.info-section {
+.category,
+.product,
+.info {
   background: white;
-  padding: 35px;
-  border-radius: 10px;
-  margin-bottom: 25px;
-  scroll-margin-top: 20px;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 3px 12px rgba(0,0,0,.06);
 }
-.info-section h2 { color: var(--navy); margin-bottom: 15px; }
-.info-section p { margin-bottom: 12px; }
-.info-section a { color: #92702e; }
-.contact-form { display: grid; gap: 12px; max-width: 550px; }
-.contact-form input, .contact-form textarea {
-  padding: 13px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font: inherit;
-}
-footer {
-  background: var(--navy);
-  color: white;
-  padding: 35px 20px;
+
+.category {
   text-align: center;
 }
-footer p { color: #d0d6df; font-size: 13px; margin: 8px; }
-footer a { color: var(--gold); margin: 0 8px; text-decoration: none; }
 
-@media(max-width:750px) {
-  header { justify-content: center; text-align: center; }
-  nav { justify-content: center; }
-  .categories { grid-template-columns: repeat(2,1fr); }
-  .products { grid-template-columns: repeat(2,1fr); }
+.product {
+  padding: 0;
+  overflow: hidden;
 }
-@media(max-width:480px) {
-  .products { grid-template-columns: 1fr; }
-  .hero { padding: 60px 18px; }
-  .info-section { padding: 23px; }
+
+.product img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.product-content {
+  padding: 18px;
+}
+
+.product h3 {
+  margin-bottom: 8px;
+}
+
+.product p {
+  color: #667085;
+  font-size: 14px;
+}
+
+.product a {
+  display: inline-block;
+  margin-top: 15px;
+  color: #2456a0;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.ad-space {
+  border: 2px dashed #b7c2d3;
+  padding: 30px;
+  text-align: center;
+  margin: 30px 0;
+  color: #667085;
+  background: white;
+  border-radius: 8px;
+}
+
+.info {
+  margin-bottom: 20px;
+}
+
+.info h3 {
+  margin-bottom: 10px;
+}
+
+.info p {
+  margin-bottom: 12px;
+}
+
+.info a {
+  color: #2456a0;
+}
+
+footer {
+  background: #142d59;
+  color: white;
+  text-align: center;
+  padding: 30px 15px;
+}
+
+footer a {
+  color: white;
+  margin: 8px;
+  text-decoration: none;
+}
+
+@media(max-width:600px) {
+  .hero h2 {
+    font-size: 30px;
+  }
+
+  nav a {
+    display: inline-block;
+  }
 }
 </style>
 </head>
@@ -175,7 +193,9 @@ footer a { color: var(--gold); margin: 0 8px; text-decoration: none; }
 <body>
 
 <header>
-  <div class="logo">SMART <span>CHOICE.</span></div>
+  <h1>SMART CHOICE.</h1>
+  <p>Make smarter choices. Discover better deals.</p>
+
   <nav>
     <a href="#home">Home</a>
     <a href="#categories">Categories</a>
@@ -186,290 +206,256 @@ footer a { color: var(--gold); margin: 0 8px; text-decoration: none; }
 </header>
 
 <section class="hero" id="home">
-  <h1>Make Smarter <span>Choices.</span></h1>
+  <h2>Make Smarter Choices.</h2>
+
   <p>
-    Discover useful products, explore shopping recommendations
-    and find better ways to shop.
+    Discover useful products, compare options
+    and find smart shopping ideas for everyday life.
   </p>
+
   <a href="#products" class="btn">Explore Products</a>
 </section>
 
-<main>
+<div class="container" id="categories">
 
-<section class="container" id="categories">
-  <div class="section-title">
-    <h2>Explore Our Categories</h2>
-    <p>Discover products for everyday life.</p>
-  </div>
+  <h2 class="section-title">Explore Categories</h2>
 
   <div class="categories">
-    <a class="category" href="#products" onclick="chooseCategory('Technology')">
-      <span>📱</span>Technology
-    </a>
-    <a class="category" href="#products" onclick="chooseCategory('Home')">
-      <span>🏠</span>Home & Living
-    </a>
-    <a class="category" href="#products" onclick="chooseCategory('Fashion')">
-      <span>👗</span>Fashion & Beauty
-    </a>
-    <a class="category" href="#products" onclick="chooseCategory('Deals')">
-      <span>⭐</span>Best Deals
-    </a>
+
+    <div class="category">
+      <h3>📱 Technology</h3>
+      <p>Smartphones, gadgets and electronics.</p>
+    </div>
+
+    <div class="category">
+      <h3>🏠 Home & Living</h3>
+      <p>Useful home products and essentials.</p>
+    </div>
+
+    <div class="category">
+      <h3>👟 Fashion & Beauty</h3>
+      <p>Fashion, accessories and beauty finds.</p>
+    </div>
+
+    <div class="category">
+      <h3>✨ Smart Finds</h3>
+      <p>Interesting products worth discovering.</p>
+    </div>
+
   </div>
-</section>
+</div>
 
-<section class="container" id="products">
-  <div class="section-title">
-    <h2>Featured Products</h2>
-    <p>Explore our product recommendations.</p>
+<div class="container" id="products">
+
+  <h2 class="section-title">Featured Products</h2>
+
+  <p style="text-align:center;margin-bottom:25px">
+    Explore our product recommendations.
+  </p>
+
+  <!-- GOOGLE ADSENSE AD SPACE -->
+  <div class="ad-space">
+    Advertisement
+    <br>
+    Google AdSense code goes here after approval.
   </div>
 
-  <div class="search-wrap">
-    <input id="search" type="search"
-      placeholder="Search products..."
-      oninput="filterProducts()">
-  </div>
+  <div class="products">
 
-  <div class="filters">
-    <button class="filter active" onclick="chooseCategory('All',this)">All</button>
-    <button class="filter" onclick="chooseCategory('Technology',this)">Technology</button>
-    <button class="filter" onclick="chooseCategory('Home',this)">Home</button>
-    <button class="filter" onclick="chooseCategory('Fashion',this)">Fashion</button>
-    <button class="filter" onclick="chooseCategory('Deals',this)">Deals</button>
-  </div>
-
-  <div class="products" id="productGrid">
-
-    <article class="product" data-category="Technology">
-      <div class="product-image">🎧</div>
-      <div class="product-info">
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=700" alt="Wireless headphones">
+      <div class="product-content">
         <h3>Wireless Headphones</h3>
-        <p>Explore wireless headphones for music, calls and everyday use.</p>
-        <a class="btn affiliate-link" href="#contact">View Product</a>
-        <span class="pending">Product link to be added</span>
+        <p>Explore headphones with useful features and quality sound.</p>
+        <a href="YOUR_AFFILIATE_LINK_1" target="_blank" rel="nofollow sponsored noopener">View Product →</a>
       </div>
-    </article>
+    </div>
 
-    <article class="product" data-category="Technology">
-      <div class="product-image">⌚</div>
-      <div class="product-info">
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700" alt="Watch">
+      <div class="product-content">
         <h3>Smart Watches</h3>
-        <p>Discover smart watches with useful everyday features.</p>
-        <a class="btn affiliate-link" href="#contact">View Product</a>
-        <span class="pending">Product link to be added</span>
+        <p>Discover watches with smart features and stylish designs.</p>
+        <a href="YOUR_AFFILIATE_LINK_2" target="_blank" rel="nofollow sponsored noopener">View Product →</a>
       </div>
-    </article>
+    </div>
 
-    <article class="product" data-category="Technology">
-      <div class="product-image">📱</div>
-      <div class="product-info">
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=700" alt="Smartphone">
+      <div class="product-content">
         <h3>Smartphones</h3>
-        <p>Compare smartphones and explore different features.</p>
-        <a class="btn affiliate-link" href="#contact">View Product</a>
-        <span class="pending">Product link to be added</span>
+        <p>Compare phones, cameras, storage and battery life.</p>
+        <a href="YOUR_AFFILIATE_LINK_3" target="_blank" rel="nofollow sponsored noopener">View Product →</a>
       </div>
-    </article>
+    </div>
 
-    <article class="product" data-category="Home">
-      <div class="product-image">🍳</div>
-      <div class="product-info">
-        <h3>Air Fryers</h3>
-        <p>Explore practical kitchen appliances for your home.</p>
-        <a class="btn affiliate-link" href="#contact">View Product</a>
-        <span class="pending">Product link to be added</span>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=700" alt="Kitchen products">
+      <div class="product-content">
+        <h3>Kitchen Essentials</h3>
+        <p>Find useful kitchen equipment for your home.</p>
+        <a href="YOUR_AFFILIATE_LINK_4" target="_blank" rel="nofollow sponsored noopener">View Product →</a>
       </div>
-    </article>
+    </div>
 
-    <article class="product" data-category="Home">
-      <div class="product-image">🛋️</div>
-      <div class="product-info">
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=700" alt="Living room furniture">
+      <div class="product-content">
         <h3>Home Furniture</h3>
-        <p>Find inspiration for comfortable living spaces.</p>
-        <a class="btn affiliate-link" href="#contact">View Product</a>
-        <span class="pending">Product link to be added</span>
+        <p>Explore practical furniture and home inspiration.</p>
+        <a href="YOUR_AFFILIATE_LINK_5" target="_blank" rel="nofollow sponsored noopener">View Product →</a>
       </div>
-    </article>
+    </div>
 
-    <article class="product" data-category="Fashion">
-      <div class="product-image">👟</div>
-      <div class="product-info">
-        <h3>Fashion & Shoes</h3>
-        <p>Explore everyday fashion and footwear options.</p>
-        <a class="btn affiliate-link" href="#contact">View Product</a>
-        <span class="pending">Product link to be added</span>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700" alt="Sneakers">
+      <div class="product-content">
+        <h3>Fashion Finds</h3>
+        <p>Discover everyday footwear and fashion accessories.</p>
+        <a href="YOUR_AFFILIATE_LINK_6" target="_blank" rel="nofollow sponsored noopener">View Product →</a>
       </div>
-    </article>
-
-    <article class="product" data-category="Fashion">
-      <div class="product-image">💄</div>
-      <div class="product-info">
-        <h3>Beauty Essentials</h3>
-        <p>Discover skincare and beauty products.</p>
-        <a class="btn affiliate-link" href="#contact">View Product</a>
-        <span class="pending">Product link to be added</span>
-      </div>
-    </article>
-
-    <article class="product" data-category="Deals">
-      <div class="product-image">🛍️</div>
-      <div class="product-info">
-        <h3>Shopping Finds</h3>
-        <p>Explore interesting products and shopping ideas.</p>
-        <a class="btn affiliate-link" href="#contact">View Product</a>
-        <span class="pending">Product link to be added</span>
-      </div>
-    </article>
-
-    <article class="product" data-category="Deals">
-      <div class="product-image">⭐</div>
-      <div class="product-info">
-        <h3>Top Recommendations</h3>
-        <p>Discover products worth comparing before buying.</p>
-        <a class="btn affiliate-link" href="#contact">View Product</a>
-        <span class="pending">Product link to be added</span>
-      </div>
-    </article>
+    </div>
 
   </div>
-  <p class="no-results" id="noResults">No products found. Try another search.</p>
-</section>
 
-<section class="container" id="about">
-  <div class="info-section">
-    <h2>About Smart Choice</h2>
-    <p>
-      Smart Choice was created to make online shopping easier.
-      We share shopping ideas, product recommendations and
-      helpful information to help visitors make informed decisions.
-    </p>
-    <p>
-      Our categories include technology, home and living,
-      fashion, beauty and everyday essentials.
-    </p>
-    <p><strong>Our mission:</strong> Help people make smarter choices.</p>
+  <div class="ad-space">
+    Advertisement
+    <br>
+    Second Google AdSense placement.
   </div>
 
-  <div class="info-section">
-    <h2>Why Shop With Smart Choice?</h2>
-    <p>✓ Helpful product discovery.</p>
-    <p>✓ Easy-to-explore categories.</p>
-    <p>✓ Shopping inspiration.</p>
-    <p>✓ Product information to support better decisions.</p>
-  </div>
-</section>
-
-<section class="container" id="contact">
-  <div class="info-section">
-    <h2>Contact Us</h2>
-    <p>Have a question, suggestion or business enquiry?</p>
-    <p>Email: <a href=”khazamula480@gmail.com”>YOUR_EMAIL@example.com</a></p>
-    <p>Replace the example email with your real business email.</p>
-  </div>
-
-  <div class="info-section" id="disclosure">
-    <h2>Affiliate Disclosure</h2>
+  <div class="info">
     <p>
-      Smart Choice may participate in affiliate marketing programmes.
-      Some links may be affiliate links, meaning we may earn a
-      commission when visitors make qualifying purchases through them,
-      at no additional cost to the customer.
-    </p>
-    <p>
-      We aim to be transparent about our affiliate relationships.
+      <strong>Affiliate disclosure:</strong>
+      Smart Choice may earn commissions from qualifying
+      purchases made through approved affiliate links.
+      This does not cost you extra.
     </p>
   </div>
 
-  <div class="info-section" id="privacy">
-    <h2>Privacy Policy</h2>
+</div>
+
+<div class="container" id="about">
+
+  <h2 class="section-title">About Smart Choice</h2>
+
+  <div class="info">
     <p>
-      Smart Choice respects the privacy of its visitors.
-      Our website may use cookies and similar technologies
-      to improve the visitor experience and understand website traffic.
+      Welcome to Smart Choice, your destination for
+      discovering useful products and smart shopping ideas.
     </p>
+
     <p>
-      Third-party advertising and affiliate partners may use cookies
-      or similar technologies to measure advertising performance,
-      display advertisements and track referrals.
+      Our goal is to help shoppers explore products,
+      compare options and make informed purchasing decisions.
     </p>
+
     <p>
-      Where required, visitors will be provided with appropriate
-      cookie consent options.
+      We cover technology, home and living,
+      fashion, beauty and everyday discoveries.
     </p>
-    <p>
-      For privacy questions, contact us using the email address
-      listed above.
-    </p>
-    <p>Last updated: November 2026.</p>
   </div>
 
-</section>
+  <h2 class="section-title">Privacy Policy</h2>
 
-</main>
+  <div class="info">
+
+    <p>
+      Smart Choice respects your privacy.
+      We may collect basic technical information
+      through our hosting and analytics providers.
+    </p>
+
+    <p>
+      If advertising services such as Google AdSense
+      are enabled, cookies and similar technologies
+      may be used to serve and measure advertisements.
+    </p>
+
+    <p>
+      Third-party retailers and affiliate programmes
+      have their own privacy policies.
+    </p>
+
+    <p>
+      For privacy enquiries, contact:
+      <a href="mailto:Khazamula480@gmail.com">
+        Khazamula480@gmail.com
+      </a>
+    </p>
+
+    <p>
+      Last updated: 26 November 2026.
+    </p>
+
+  </div>
+
+  <h2 class="section-title">Affiliate Disclosure</h2>
+
+  <div class="info">
+    <p>
+      Smart Choice may participate in affiliate
+      marketing programmes. We may earn a commission
+      when you purchase through qualifying links.
+    </p>
+
+    <p>
+      Product prices, availability and retailer terms
+      can change. Always verify these details with
+      the seller before purchasing.
+    </p>
+  </div>
+
+</div>
+
+<div class="container" id="contact">
+
+  <h2 class="section-title">Contact Us</h2>
+
+  <div class="info" style="text-align:center">
+
+    <h3>Get in Touch</h3>
+
+    <p>
+      Have a question, suggestion or business enquiry?
+    </p>
+
+    <p>
+      Email:
+      <strong>Khazamula480@gmail.com</strong>
+    </p>
+
+    <a class="btn"
+       href="mailto:Khazamula480@gmail.com?subject=Smart%20Choice%20Enquiry">
+       Email Smart Choice
+    </a>
+
+  </div>
+
+</div>
 
 <footer>
-  <div class="logo">SMART <span>CHOICE.</span></div>
+
+  <h3>SMART CHOICE.</h3>
+
   <p>Make smarter choices. Discover better deals.</p>
-  <p>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <a href="#privacy">Privacy Policy</a>
-    <a href="#disclosure">Affiliate Disclosure</a>
+
+  <br>
+
+  <a href="#home">Home</a>
+  <a href="#about">Privacy Policy</a>
+  <a href="#contact">Contact</a>
+
+  <p style="margin-top:20px">
+    © <span id="year"></span> Smart Choice.
+    All rights reserved.
   </p>
-  <p>© <span id="year"></span> Smart Choice. All rights reserved.</p>
+
 </footer>
 
 <script>
-let currentCategory = "All";
-
-function chooseCategory(category, button) {
-  currentCategory = category;
-
-  document.querySelectorAll(".filter").forEach(b =>
-    b.classList.remove("active")
-  );
-
-  if (button) {
-    button.classList.add("active");
-  } else {
-    document.querySelectorAll(".filter").forEach(b => {
-      if (b.textContent.trim() === category) {
-        b.classList.add("active");
-      }
-    });
-  }
-
-  filterProducts();
-}
-
-function filterProducts() {
-  const search = document.getElementById("search")
-    .value.toLowerCase().trim();
-
-  const products = document.querySelectorAll(".product");
-  let visible = 0;
-
-  products.forEach(product => {
-    const category = product.dataset.category;
-    const text = product.textContent.toLowerCase();
-
-    const categoryMatch =
-      currentCategory === "All" ||
-      category === currentCategory;
-
-    const searchMatch = text.includes(search);
-
-    const show = categoryMatch && searchMatch;
-    product.style.display = show ? "block" : "none";
-
-    if (show) visible++;
-  });
-
-  document.getElementById("noResults").style.display =
-    visible ? "none" : "block";
-}
-
 document.getElementById("year").textContent =
-  new Date().getFullYear();
+new Date().getFullYear();
 </script>
 
 </body>
