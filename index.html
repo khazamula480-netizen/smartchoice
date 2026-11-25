@@ -1,460 +1,571 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Smart Choice helps you discover useful products, compare options and make smarter shopping decisions.">
+  <meta name="theme-color" content="#123c75">
+  <title>Smart Choice | Shop Smarter, Choose Better</title>
 
-<title>Smart Choice | Make Smarter Choices</title>
+  <style>
+    :root {
+      --navy: #123c75;
+      --blue: #2166c2;
+      --light: #eef5ff;
+      --ink: #17243a;
+      --muted: #64748b;
+      --white: #ffffff;
+      --border: #e3eaf3;
+    }
 
-<meta name="description" content="Discover useful products, smart shopping ideas and buying guides with Smart Choice.">
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    html { scroll-behavior: smooth; }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #f5f7fb;
-  color: #172033;
-  line-height: 1.6;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      color: var(--ink);
+      line-height: 1.6;
+    }
 
-header {
-  background: #142d59;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
+    a { text-decoration: none; color: inherit; }
 
-header h1 {
-  font-size: 28px;
-  letter-spacing: 2px;
-}
+    header {
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 12px #102b5010;
+    }
 
-nav {
-  margin-top: 12px;
-}
+    .nav {
+      max-width: 1150px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 8px;
-  font-size: 14px;
-}
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      color: var(--navy);
+    }
 
-.hero {
-  background: linear-gradient(135deg,#142d59,#3474c5);
-  color: white;
-  text-align: center;
-  padding: 75px 20px;
-}
+    .logo span { color: var(--blue); }
 
-.hero h2 {
-  font-size: 38px;
-  margin-bottom: 15px;
-}
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      font-weight: 600;
+    }
 
-.hero p {
-  max-width: 600px;
-  margin: auto;
-}
+    nav a:hover { color: var(--blue); }
 
-.btn {
-  display: inline-block;
-  background: #f4bd45;
-  color: #142d59;
-  padding: 13px 25px;
-  margin-top: 20px;
-  border-radius: 7px;
-  text-decoration: none;
-  font-weight: bold;
-}
+    .hero {
+      background: linear-gradient(130deg, #102f60, #2879d8);
+      color: white;
+      padding: 75px 20px;
+      text-align: center;
+    }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 45px 20px;
-}
+    .hero h1 {
+      font-size: clamp(34px, 6vw, 54px);
+      line-height: 1.12;
+      margin-bottom: 18px;
+    }
 
-h2.section-title {
-  text-align: center;
-  margin-bottom: 25px;
-  font-size: 28px;
-}
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 25px;
+      color: #e2edff;
+      font-size: 17px;
+    }
 
-.categories,
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 22px;
-}
+    .hero a {
+      display: inline-block;
+      background: white;
+      color: var(--navy);
+      padding: 13px 25px;
+      border-radius: 30px;
+      font-weight: 700;
+    }
 
-.category,
-.product,
-.info {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 3px 12px rgba(0,0,0,.06);
-}
+    .container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 45px 20px;
+    }
 
-.category {
-  text-align: center;
-}
+    .section-heading {
+      margin-bottom: 22px;
+    }
 
-.product {
-  padding: 0;
-  overflow: hidden;
-}
+    .section-heading h2 {
+      font-size: 28px;
+      color: var(--navy);
+    }
 
-.product img {
-  width: 100%;
-  height: 190px;
-  object-fit: cover;
-}
+    .section-heading p { color: var(--muted); }
 
-.product-content {
-  padding: 18px;
-}
+    .search-wrap { margin: 25px 0; }
 
-.product h3 {
-  margin-bottom: 8px;
-}
+    .search-wrap input {
+      width: 100%;
+      padding: 15px 18px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 16px;
+      outline-color: var(--blue);
+    }
 
-.product p {
-  color: #667085;
-  font-size: 14px;
-}
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
 
-.product a {
-  display: inline-block;
-  margin-top: 15px;
-  color: #2456a0;
-  font-weight: bold;
-  text-decoration: none;
-}
+    .filter {
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--navy);
+      padding: 9px 16px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+    }
 
-.ad-space {
-  border: 2px dashed #b7c2d3;
-  padding: 30px;
-  text-align: center;
-  margin: 30px 0;
-  color: #667085;
-  background: white;
-  border-radius: 8px;
-}
+    .filter.active, .filter:hover {
+      background: var(--blue);
+      color: white;
+      border-color: var(--blue);
+    }
 
-.info {
-  margin-bottom: 20px;
-}
+    .ad-space {
+      background: #edf2f8;
+      border: 1px dashed #aebed1;
+      border-radius: 12px;
+      padding: 25px 15px;
+      margin: 25px 0;
+      text-align: center;
+      color: #718096;
+      font-size: 13px;
+    }
 
-.info h3 {
-  margin-bottom: 10px;
-}
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
 
-.info p {
-  margin-bottom: 12px;
-}
+    .product {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 5px 18px #122b5010;
+      transition: transform .2s, box-shadow .2s;
+    }
 
-.info a {
-  color: #2456a0;
-}
+    .product:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px #122b5020;
+    }
 
-footer {
-  background: #142d59;
-  color: white;
-  text-align: center;
-  padding: 30px 15px;
-}
+    .product img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      background: var(--light);
+    }
 
-footer a {
-  color: white;
-  margin: 8px;
-  text-decoration: none;
-}
+    .product-content { padding: 19px; }
 
-@media(max-width:600px) {
-  .hero h2 {
-    font-size: 30px;
-  }
+    .tag {
+      display: inline-block;
+      background: var(--light);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
 
-  nav a {
-    display: inline-block;
-  }
-}
-</style>
+    .product h3 {
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    .product p {
+      font-size: 14px;
+      color: var(--muted);
+      min-height: 66px;
+      margin-bottom: 15px;
+    }
+
+    .product button {
+      width: 100%;
+      background: var(--blue);
+      color: white;
+      border: 0;
+      border-radius: 9px;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .product button:hover { background: var(--navy); }
+
+    .empty {
+      display: none;
+      text-align: center;
+      padding: 30px;
+      color: var(--muted);
+      grid-column: 1 / -1;
+    }
+
+    .info-section {
+      background: white;
+      border-top: 1px solid var(--border);
+      padding: 48px 20px;
+    }
+
+    .info-inner {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .info-inner h2 {
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .info-inner p {
+      color: #526176;
+      margin-bottom: 15px;
+    }
+
+    .info-inner a {
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    footer {
+      background: #102b50;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    footer p { color: #c9d8ec; font-size: 13px; }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 15px 0;
+      font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .nav { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (max-width: 520px) {
+      .products { grid-template-columns: 1fr; }
+      .hero { padding: 55px 18px; }
+      .product img { height: 230px; }
+      nav { gap: 12px; }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-  <h1>SMART CHOICE.</h1>
-  <p>Make smarter choices. Discover better deals.</p>
-
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#categories">Categories</a>
-    <a href="#products">Products</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="nav">
+    <a class="logo" href="#">SMART <span>CHOICE.</span></a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <section class="hero" id="home">
-  <h2>Make Smarter Choices.</h2>
-
+  <h1>Shop Smarter.<br>Choose Better.</h1>
   <p>
-    Discover useful products, compare options
-    and find smart shopping ideas for everyday life.
+    Discover useful products, explore different options
+    and make smarter shopping decisions with Smart Choice.
   </p>
-
-  <a href="#products" class="btn">Explore Products</a>
+  <a href="#products">Explore Products</a>
 </section>
 
-<div class="container" id="categories">
-
-  <h2 class="section-title">Explore Categories</h2>
-
-  <div class="categories">
-
-    <div class="category">
-      <h3>📱 Technology</h3>
-      <p>Smartphones, gadgets and electronics.</p>
+<main>
+  <section class="container" id="products">
+    <div class="section-heading">
+      <h2>Discover Your Next Smart Choice</h2>
+      <p>Explore our handpicked product recommendations.</p>
     </div>
 
-    <div class="category">
-      <h3>🏠 Home & Living</h3>
-      <p>Useful home products and essentials.</p>
+    <div class="search-wrap">
+      <input id="search" type="search"
+        placeholder="Search products or categories..."
+        aria-label="Search products">
     </div>
 
-    <div class="category">
-      <h3>👟 Fashion & Beauty</h3>
-      <p>Fashion, accessories and beauty finds.</p>
+    <div class="filters">
+      <button class="filter active" data-category="all">All</button>
+      <button class="filter" data-category="electronics">Electronics</button>
+      <button class="filter" data-category="home">Home</button>
+      <button class="filter" data-category="fashion">Fashion</button>
+      <button class="filter" data-category="beauty">Beauty</button>
+      <button class="filter" data-category="lifestyle">Lifestyle</button>
     </div>
 
-    <div class="category">
-      <h3>✨ Smart Finds</h3>
-      <p>Interesting products worth discovering.</p>
+    <div class="ad-space">
+      Advertisement space — Google AdSense code can be added here after approval.
     </div>
 
-  </div>
-</div>
+    <div class="products" id="productGrid">
 
-<div class="container" id="products">
+      <article class="product" data-category="electronics">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30b?auto=format&fit=crop&w=700&q=80" alt="Wireless headphones">
+        <div class="product-content">
+          <span class="tag">Electronics</span>
+          <h3>Wireless Headphones</h3>
+          <p>Explore wireless headphones for music, calls and everyday listening.</p>
+          <button onclick="affiliateNotice()">Affiliate link coming soon</button>
+        </div>
+      </article>
 
-  <h2 class="section-title">Featured Products</h2>
+      <article class="product" data-category="electronics">
+        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=700&q=80" alt="Smartphone">
+        <div class="product-content">
+          <span class="tag">Electronics</span>
+          <h3>Smartphones</h3>
+          <p>Compare smartphone options for photography, work and entertainment.</p>
+          <button onclick="affiliateNotice()">Affiliate link coming soon</button>
+        </div>
+      </article>
 
-  <p style="text-align:center;margin-bottom:25px">
-    Explore our product recommendations.
-  </p>
+      <article class="product" data-category="electronics">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80" alt="Smart watch">
+        <div class="product-content">
+          <span class="tag">Electronics</span>
+          <h3>Smart Watches</h3>
+          <p>Discover wearable technology for everyday convenience and activity tracking.</p>
+          <button onclick="affiliateNotice()">Affiliate link coming soon</button>
+        </div>
+      </article>
 
-  <!-- GOOGLE ADSENSE AD SPACE -->
-  <div class="ad-space">
-    Advertisement
-    <br>
-    Google AdSense code goes here after approval.
-  </div>
+      <article class="product" data-category="home">
+        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=700&q=80" alt="Modern kitchen">
+        <div class="product-content">
+          <span class="tag">Home</span>
+          <h3>Kitchen Essentials</h3>
+          <p>Find useful kitchen products to make everyday cooking easier.</p>
+          <button onclick="affiliateNotice()">Affiliate link coming soon</button>
+        </div>
+      </article>
 
-  <div class="products">
+      <article class="product" data-category="home">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80" alt="Home interior">
+        <div class="product-content">
+          <span class="tag">Home</span>
+          <h3>Home Décor</h3>
+          <p>Explore décor ideas and products to refresh your living space.</p>
+          <button onclick="affiliateNotice()">Affiliate link coming soon</button>
+        </div>
+      </article>
 
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=700" alt="Wireless headphones">
-      <div class="product-content">
-        <h3>Wireless Headphones</h3>
-        <p>Explore headphones with useful features and quality sound.</p>
-        <a href="YOUR_AFFILIATE_LINK_1" target="_blank" rel="nofollow sponsored noopener">View Product →</a>
-      </div>
+      <article class="product" data-category="fashion">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80" alt="Fashion sneakers">
+        <div class="product-content">
+          <span class="tag">Fashion</span>
+          <h3>Everyday Sneakers</h3>
+          <p>Discover casual footwear options for comfort and personal style.</p>
+          <button onclick="affiliateNotice()">Affiliate link coming soon</button>
+        </div>
+      </article>
+
+      <article class="product" data-category="fashion">
+        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80" alt="Backpack">
+        <div class="product-content">
+          <span class="tag">Fashion</span>
+          <h3>Everyday Bags</h3>
+          <p>Explore practical bags for work, travel and everyday use.</p>
+          <button onclick="affiliateNotice()">Affiliate link coming soon</button>
+        </div>
+      </article>
+
+      <article class="product" data-category="beauty">
+        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=80" alt="Beauty products">
+        <div class="product-content">
+          <span class="tag">Beauty</span>
+          <h3>Beauty Essentials</h3>
+          <p>Discover beauty and personal-care products worth exploring.</p>
+          <button onclick="affiliateNotice()">Affiliate link coming soon</button>
+        </div>
+      </article>
+
+      <article class="product" data-category="lifestyle">
+        <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=700&q=80" alt="Lifestyle workspace">
+        <div class="product-content">
+          <span class="tag">Lifestyle</span>
+          <h3>Workspace Essentials</h3>
+          <p>Explore useful accessories for a more organised workspace.</p>
+          <button onclick="affiliateNotice()">Affiliate link coming soon</button>
+        </div>
+      </article>
+
+      <div class="empty" id="empty">No matching products found. Try another search.</div>
     </div>
 
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700" alt="Watch">
-      <div class="product-content">
-        <h3>Smart Watches</h3>
-        <p>Discover watches with smart features and stylish designs.</p>
-        <a href="YOUR_AFFILIATE_LINK_2" target="_blank" rel="nofollow sponsored noopener">View Product →</a>
-      </div>
+    <div class="ad-space">
+      Advertisement space — add your approved Google AdSense unit code here.
     </div>
+  </section>
 
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=700" alt="Smartphone">
-      <div class="product-content">
-        <h3>Smartphones</h3>
-        <p>Compare phones, cameras, storage and battery life.</p>
-        <a href="YOUR_AFFILIATE_LINK_3" target="_blank" rel="nofollow sponsored noopener">View Product →</a>
-      </div>
+  <section class="info-section" id="about">
+    <div class="info-inner">
+      <h2>About Smart Choice</h2>
+      <p>
+        Smart Choice is a product discovery website designed to help
+        shoppers explore useful products and make informed decisions.
+        Our goal is to make online shopping easier, clearer and smarter.
+      </p>
     </div>
+  </section>
 
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=700" alt="Kitchen products">
-      <div class="product-content">
-        <h3>Kitchen Essentials</h3>
-        <p>Find useful kitchen equipment for your home.</p>
-        <a href="YOUR_AFFILIATE_LINK_4" target="_blank" rel="nofollow sponsored noopener">View Product →</a>
-      </div>
+  <section class="info-section" id="disclosure">
+    <div class="info-inner">
+      <h2>Affiliate Disclosure</h2>
+      <p>
+        Smart Choice may participate in affiliate marketing programmes
+        in the future. If we use affiliate links, we may earn a commission
+        when visitors make qualifying purchases through those links,
+        at no additional cost to the buyer.
+      </p>
+      <p>
+        We will identify affiliate links clearly when they are added.
+        Product information and availability may change, so always check
+        the retailer's listing before purchasing.
+      </p>
     </div>
+  </section>
 
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=700" alt="Living room furniture">
-      <div class="product-content">
-        <h3>Home Furniture</h3>
-        <p>Explore practical furniture and home inspiration.</p>
-        <a href="YOUR_AFFILIATE_LINK_5" target="_blank" rel="nofollow sponsored noopener">View Product →</a>
-      </div>
+  <section class="info-section" id="privacy">
+    <div class="info-inner">
+      <h2>Privacy Policy</h2>
+      <p>
+        Smart Choice aims to respect visitors' privacy. You can browse
+        this website without creating an account.
+      </p>
+      <p>
+        This website may use third-party services such as advertising
+        providers, analytics tools or affiliate networks in the future.
+        Those services may use cookies or similar technologies according
+        to their own privacy policies.
+      </p>
+      <p>
+        If we introduce advertising, analytics or other data collection,
+        this policy must be updated to explain what information is
+        collected, why it is collected and how visitors can exercise
+        their applicable privacy rights under South African law,
+        including POPIA.
+      </p>
+      <p>
+        For privacy questions, contact:
+        <a href="mailto:Khazamula480@gmail.com">Khazamula480@gmail.com</a>
+      </p>
     </div>
+  </section>
 
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700" alt="Sneakers">
-      <div class="product-content">
-        <h3>Fashion Finds</h3>
-        <p>Discover everyday footwear and fashion accessories.</p>
-        <a href="YOUR_AFFILIATE_LINK_6" target="_blank" rel="nofollow sponsored noopener">View Product →</a>
-      </div>
+  <section class="info-section" id="contact">
+    <div class="info-inner">
+      <h2>Contact Us</h2>
+      <p>
+        Have a question, suggestion or business enquiry?
+        We'd love to hear from you.
+      </p>
+      <p>
+        Email:
+        <a href="mailto:Khazamula480@gmail.com">Khazamula480@gmail.com</a>
+      </p>
     </div>
-
-  </div>
-
-  <div class="ad-space">
-    Advertisement
-    <br>
-    Second Google AdSense placement.
-  </div>
-
-  <div class="info">
-    <p>
-      <strong>Affiliate disclosure:</strong>
-      Smart Choice may earn commissions from qualifying
-      purchases made through approved affiliate links.
-      This does not cost you extra.
-    </p>
-  </div>
-
-</div>
-
-<div class="container" id="about">
-
-  <h2 class="section-title">About Smart Choice</h2>
-
-  <div class="info">
-    <p>
-      Welcome to Smart Choice, your destination for
-      discovering useful products and smart shopping ideas.
-    </p>
-
-    <p>
-      Our goal is to help shoppers explore products,
-      compare options and make informed purchasing decisions.
-    </p>
-
-    <p>
-      We cover technology, home and living,
-      fashion, beauty and everyday discoveries.
-    </p>
-  </div>
-
-  <h2 class="section-title">Privacy Policy</h2>
-
-  <div class="info">
-
-    <p>
-      Smart Choice respects your privacy.
-      We may collect basic technical information
-      through our hosting and analytics providers.
-    </p>
-
-    <p>
-      If advertising services such as Google AdSense
-      are enabled, cookies and similar technologies
-      may be used to serve and measure advertisements.
-    </p>
-
-    <p>
-      Third-party retailers and affiliate programmes
-      have their own privacy policies.
-    </p>
-
-    <p>
-      For privacy enquiries, contact:
-      <a href="mailto:Khazamula480@gmail.com">
-        Khazamula480@gmail.com
-      </a>
-    </p>
-
-    <p>
-      Last updated: 26 November 2026.
-    </p>
-
-  </div>
-
-  <h2 class="section-title">Affiliate Disclosure</h2>
-
-  <div class="info">
-    <p>
-      Smart Choice may participate in affiliate
-      marketing programmes. We may earn a commission
-      when you purchase through qualifying links.
-    </p>
-
-    <p>
-      Product prices, availability and retailer terms
-      can change. Always verify these details with
-      the seller before purchasing.
-    </p>
-  </div>
-
-</div>
-
-<div class="container" id="contact">
-
-  <h2 class="section-title">Contact Us</h2>
-
-  <div class="info" style="text-align:center">
-
-    <h3>Get in Touch</h3>
-
-    <p>
-      Have a question, suggestion or business enquiry?
-    </p>
-
-    <p>
-      Email:
-      <strong>Khazamula480@gmail.com</strong>
-    </p>
-
-    <a class="btn"
-       href="mailto:Khazamula480@gmail.com?subject=Smart%20Choice%20Enquiry">
-       Email Smart Choice
-    </a>
-
-  </div>
-
-</div>
+  </section>
+</main>
 
 <footer>
-
-  <h3>SMART CHOICE.</h3>
-
-  <p>Make smarter choices. Discover better deals.</p>
-
-  <br>
-
-  <a href="#home">Home</a>
-  <a href="#about">Privacy Policy</a>
-  <a href="#contact">Contact</a>
-
-  <p style="margin-top:20px">
-    © <span id="year"></span> Smart Choice.
-    All rights reserved.
-  </p>
-
+  <div class="logo" style="color:white;">SMART <span>CHOICE.</span></div>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#privacy">Privacy Policy</a>
+    <a href="#disclosure">Affiliate Disclosure</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <p>© <span id="year"></span> Smart Choice. All rights reserved.</p>
+  <p>Shop smarter. Choose better.</p>
 </footer>
 
 <script>
-document.getElementById("year").textContent =
-new Date().getFullYear();
+  const search = document.getElementById("search");
+  const filters = document.querySelectorAll(".filter");
+  const products = document.querySelectorAll(".product");
+  const empty = document.getElementById("empty");
+
+  let selectedCategory = "all";
+
+  function filterProducts() {
+    const term = search.value.toLowerCase();
+    let visible = 0;
+
+    products.forEach(product => {
+      const category = product.dataset.category;
+      const matchesCategory =
+        selectedCategory === "all" || category === selectedCategory;
+      const matchesSearch = product.textContent.toLowerCase().includes(term);
+      const show = matchesCategory && matchesSearch;
+
+      product.style.display = show ? "" : "none";
+      if (show) visible++;
+    });
+
+    empty.style.display = visible ? "none" : "block";
+  }
+
+  filters.forEach(button => {
+    button.addEventListener("click", () => {
+      filters.forEach(item => item.classList.remove("active"));
+      button.classList.add("active");
+      selectedCategory = button.dataset.category;
+      filterProducts();
+    });
+  });
+
+  search.addEventListener("input", filterProducts);
+
+  function affiliateNotice() {
+    alert("This product's affiliate link is not available yet. Please check back soon!");
+  }
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
 </script>
 
 </body>
