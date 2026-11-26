@@ -1,2 +1,442 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Smart Choice helps you compare products, explore buying guides and make smarter shopping decisions.">
+<title>Smart Choice | Shop Smarter, Choose Better</title>
+
+<style>
+:root {
+  --navy:#10233f;
+  --blue:#2463eb;
+  --light:#f4f7fc;
+  --text:#263449;
+  --muted:#68758a;
+  --white:#fff;
+}
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth}
+body {
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:var(--light);
+  line-height:1.6;
+}
+a {text-decoration:none;color:inherit}
+header {
+  background:var(--white);
+  padding:17px 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:15px;
+  box-shadow:0 2px 12px #10233f12;
+}
+.logo {font-size:25px;font-weight:800;color:var(--navy)}
+.logo span {color:var(--blue)}
+nav {display:flex;gap:18px;flex-wrap:wrap}
+nav a {font-size:14px;font-weight:600}
+nav a:hover {color:var(--blue)}
+.hero {
+  background:linear-gradient(120deg,#10233f,#2458a8);
+  color:white;
+  padding:75px 7%;
+  text-align:center;
+}
+.hero h1 {font-size:clamp(32px,5vw,52px);margin-bottom:15px}
+.hero p {max-width:650px;margin:0 auto 25px;color:#e0e9fa}
+.primary-btn {
+  display:inline-block;
+  background:white;
+  color:var(--navy);
+  padding:13px 23px;
+  border-radius:8px;
+  font-weight:700;
+}
+.container {max-width:1150px;margin:auto;padding:55px 20px}
+.section-heading {text-align:center;margin-bottom:30px}
+.section-heading h2 {font-size:30px;color:var(--navy)}
+.section-heading p {color:var(--muted)}
+.search-area {display:flex;gap:10px;max-width:650px;margin:0 auto 20px}
+.search-area input {
+  flex:1;min-width:0;padding:14px;border:1px solid #d5dce8;
+  border-radius:8px;font-size:15px;
+}
+.filters {display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-bottom:30px}
+.filter-btn {
+  padding:9px 16px;border:1px solid #d5dce8;background:white;
+  border-radius:25px;cursor:pointer;font-weight:600;
+}
+.filter-btn.active,.filter-btn:hover {background:var(--blue);color:white;border-color:var(--blue)}
+.products {
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;
+}
+.product {
+  background:white;border-radius:13px;overflow:hidden;
+  box-shadow:0 5px 20px #10233f0d;
+}
+.product img {width:100%;height:190px;object-fit:cover;display:block}
+.product-content {padding:19px}
+.product h3 {color:var(--navy);margin-bottom:7px}
+.product p {color:var(--muted);font-size:14px;margin-bottom:15px}
+.product a,.guide a {
+  display:inline-block;background:var(--blue);color:white;
+  padding:10px 15px;border-radius:7px;font-size:13px;font-weight:700;
+}
+.ad-space {
+  border:2px dashed #c5cede;background:#fff;text-align:center;
+  padding:25px;margin:25px auto;color:#7b8799;border-radius:9px;
+  max-width:900px;font-size:13px;
+}
+.guides {
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;
+}
+.guide {background:white;padding:23px;border-radius:12px}
+.guide h3 {color:var(--navy);margin-bottom:9px}
+.guide p {font-size:14px;color:var(--muted);margin-bottom:15px}
+.article {
+  background:white;padding:25px;border-radius:12px;margin-bottom:18px;
+}
+.article h3 {color:var(--navy);margin-bottom:10px}
+.article p {color:var(--muted);margin-bottom:10px}
+.info-section {background:white}
+.info-grid {
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;
+}
+.info-grid h3 {color:var(--navy);margin-bottom:8px}
+.info-grid p {font-size:14px;color:var(--muted)}
+footer {background:var(--navy);color:white;text-align:center;padding:30px 15px}
+footer p {font-size:13px;color:#cbd6e8;margin:6px}
+footer a {text-decoration:underline}
+@media(max-width:650px) {
+  header {justify-content:center}
+  nav {justify-content:center}
+  .hero {padding:55px 20px}
+  .container {padding:42px 16px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="#home">SMART <span>CHOICE</span></a>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#guides">Buying Guides</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h1>Shop Smarter. Choose Better.</h1>
+  <p>Discover useful products, explore helpful buying guides and make confident shopping decisions with Smart Choice.</p>
+  <a href="#products" class="primary-btn">Explore Products</a>
+</section>
+
+<main>
+<section class="container" id="products">
+  <div class="section-heading">
+    <h2>Explore Our Products</h2>
+    <p>Discover products across popular shopping categories.</p>
+  </div>
+
+  <div class="search-area">
+    <input type="search" id="searchInput" placeholder="Search for a product..." aria-label="Search products">
+  </div>
+
+  <div class="filters">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="technology">Technology</button>
+    <button class="filter-btn" data-category="wearables">Wearables</button>
+    <button class="filter-btn" data-category="home">Home</button>
+    <button class="filter-btn" data-category="beauty">Beauty</button>
+  </div>
+
+  <div class="products" id="productGrid">
+    <article class="product" data-category="technology">
+      <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=700" alt="Wireless headphones" loading="lazy">
+      <div class="product-content">
+        <h3>Wireless Headphones</h3>
+        <p>Explore wireless headphones for music, calls and everyday listening.</p>
+        <a href="#headphone-guide">Explore guide</a>
+      </div>
+    </article>
+
+    <article class="product" data-category="technology">
+      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=700" alt="Smartphone" loading="lazy">
+      <div class="product-content">
+        <h3>Smartphones</h3>
+        <p>Learn what to consider when choosing your next smartphone.</p>
+        <a href="#phone-guide">Explore guide</a>
+      </div>
+    </article>
+
+    <article class="product" data-category="wearables">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700" alt="Smartwatch" loading="lazy">
+      <div class="product-content">
+        <h3>Smartwatches</h3>
+        <p>Explore wearable technology and useful everyday features.</p>
+        <a href="#watch-guide">Explore guide</a>
+      </div>
+    </article>
+
+    <article class="product" data-category="home">
+      <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=700" alt="Kitchen appliances" loading="lazy">
+      <div class="product-content">
+        <h3>Kitchen Appliances</h3>
+        <p>Discover what matters when shopping for kitchen equipment.</p>
+        <a href="#kitchen-guide">Explore guide</a>
+      </div>
+    </article>
+
+    <article class="product" data-category="beauty">
+      <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700" alt="Beauty products" loading="lazy">
+      <div class="product-content">
+        <h3>Beauty Essentials</h3>
+        <p>Explore beauty products and things to consider before buying.</p>
+        <a href="#beauty-guide">Explore guide</a>
+      </div>
+    </article>
+
+    <article class="product" data-category="technology">
+      <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=700" alt="Laptop computer" loading="lazy">
+      <div class="product-content">
+        <h3>Laptops</h3>
+        <p>Find out what to look for in a laptop for work or study.</p>
+        <a href="#phone-guide">Explore guide</a>
+      </div>
+    </article>
+
+    <article class="product" data-category="home">
+      <img src="https://images.unsplash.com/photo-1558317374-067fb5f30001?w=700" alt="Home cleaning equipment" loading="lazy">
+      <div class="product-content">
+        <h3>Home Essentials</h3>
+        <p>Explore practical products that can make home life easier.</p>
+        <a href="#kitchen-guide">Explore guide</a>
+      </div>
+    </article>
+
+    <article class="product" data-category="wearables">
+      <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=700" alt="Fitness watch" loading="lazy">
+      <div class="product-content">
+        <h3>Fitness Trackers</h3>
+        <p>Understand activity tracking, battery life and useful features.</p>
+        <a href="#watch-guide">Explore guide</a>
+      </div>
+    </article>
+
+    <article class="product" data-category="beauty">
+      <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=700" alt="Skincare products" loading="lazy">
+      <div class="product-content">
+        <h3>Skincare</h3>
+        <p>Explore skincare shopping basics and product considerations.</p>
+        <a href="#beauty-guide">Explore guide</a>
+      </div>
+    </article>
+  </div>
+  <p id="noResults" style="display:none;text-align:center;margin-top:20px">No matching products found. Try another search.</p>
+</section>
+
+<div class="ad-space">
+  <strong>Advertisement</strong><br>
+  Advertising space — add approved advertising code here when available.
+</div>
+
+<section class="container" id="guides">
+  <div class="section-heading">
+    <h2>Smart Buying Guides</h2>
+    <p>Helpful tips to make better-informed shopping decisions.</p>
+  </div>
+  <div class="guides">
+    <div class="guide">
+      <h3>Smartphone Buying Guide</h3>
+      <p>Compare battery life, camera quality, storage, performance and software support.</p>
+      <a href="#phone-guide">Read guide</a>
+    </div>
+    <div class="guide">
+      <h3>Headphone Buying Guide</h3>
+      <p>Understand sound quality, comfort, noise cancellation and battery life.</p>
+      <a href="#headphone-guide">Read guide</a>
+    </div>
+    <div class="guide">
+      <h3>Smartwatch Buying Guide</h3>
+      <p>Consider compatibility, fitness features, screen quality and battery life.</p>
+      <a href="#watch-guide">Read guide</a>
+    </div>
+    <div class="guide">
+      <h3>Kitchen Appliance Guide</h3>
+      <p>Think about capacity, energy use, safety, cleaning and warranty.</p>
+      <a href="#kitchen-guide">Read guide</a>
+    </div>
+    <div class="guide">
+      <h3>Beauty Essentials Guide</h3>
+      <p>Consider ingredients, skin compatibility, product purpose and value.</p>
+      <a href="#beauty-guide">Read guide</a>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="section-heading">
+    <h2>Learn Before You Buy</h2>
+    <p>Simple things to check before spending your money.</p>
+  </div>
+
+  <article class="article" id="phone-guide">
+    <h3>1. How to Choose a Smartphone</h3>
+    <p>Start with your budget and what you need the phone to do. Compare battery capacity, camera performance, storage, screen quality and processing power.</p>
+    <p>Check how long the manufacturer promises software and security updates. Read independent reviews and compare prices from trusted retailers.</p>
+  </article>
+
+  <article class="article" id="headphone-guide">
+    <h3>2. How to Choose Headphones</h3>
+    <p>Think about where you will use them. Noise cancellation can help in busy environments, while comfortable ear cushions matter for long listening sessions.</p>
+    <p>Compare sound quality, microphone performance, battery life, connection type and warranty before purchasing.</p>
+  </article>
+
+  <article class="article" id="watch-guide">
+    <h3>3. How to Choose a Smartwatch</h3>
+    <p>Check that the watch works with your smartphone. Compare battery life, display quality, fitness tracking features and water resistance.</p>
+    <p>Only pay extra for features you will actually use. Check whether some features require a subscription or a specific phone.</p>
+  </article>
+
+  <article class="article" id="kitchen-guide">
+    <h3>4. How to Choose Kitchen Appliances</h3>
+    <p>Consider the appliance's size, capacity, energy consumption and ease of cleaning. Make sure it fits your kitchen and your everyday needs.</p>
+    <p>Compare warranties, safety features, replacement parts and customer reviews before deciding.</p>
+  </article>
+
+  <article class="article" id="beauty-guide">
+    <h3>5. How to Choose Beauty Products</h3>
+    <p>Check ingredients, intended use and suitability for your skin or hair. Introduce new skincare products carefully and follow product instructions.</p>
+    <p>Compare product sizes and prices so you understand the value you are getting. Avoid products making unrealistic claims.</p>
+  </article>
+</section>
+
+<div class="ad-space">
+  <strong>Advertisement</strong><br>
+  Advertising space — reserved for an approved advertising partner.
+</div>
+
+<section class="container info-section" id="how-we-choose">
+  <div class="section-heading">
+    <h2>How We Choose Products</h2>
+    <p>Our goal is to help shoppers make informed decisions.</p>
+  </div>
+  <div class="info-grid">
+    <div>
+      <h3>Useful Features</h3>
+      <p>We focus on the features that matter for everyday use.</p>
+    </div>
+    <div>
+      <h3>Value for Money</h3>
+      <p>We encourage comparing prices, quality and long-term value.</p>
+    </div>
+    <div>
+      <h3>Research First</h3>
+      <p>We encourage shoppers to check specifications and independent reviews.</p>
+    </div>
+  </div>
+</section>
+
+<section class="container" id="about">
+  <div class="section-heading">
+    <h2>About Smart Choice</h2>
+  </div>
+  <div class="article">
+    <p>Smart Choice is an online shopping information platform created to help people discover products, understand their options and make smarter purchasing decisions.</p>
+    <p>We share product information and practical buying guides across technology, home, beauty and lifestyle categories.</p>
+  </div>
+</section>
+
+<section class="container" id="disclosure">
+  <div class="section-heading"><h2>Affiliate Disclosure</h2></div>
+  <div class="article">
+    <p>Smart Choice may use affiliate links in the future. If you purchase through an approved affiliate link, we may earn a commission at no additional cost to you.</p>
+    <p>Affiliate relationships will not change the price you pay. We aim to provide useful and honest shopping information.</p>
+  </div>
+</section>
+
+<section class="container" id="privacy">
+  <div class="section-heading"><h2>Privacy Policy</h2></div>
+  <div class="article">
+    <p>Smart Choice respects visitors' privacy. This website does not currently ask visitors to create accounts or submit personal information.</p>
+    <p>Third-party services, such as advertising providers or analytics tools, may use cookies or similar technologies if added to the website. Their privacy practices are governed by their own policies.</p>
+    <p>For privacy questions, contact us using the email address below. This is a starter policy and must be updated if we introduce analytics, advertising, forms or other data collection.</p>
+  </div>
+</section>
+
+<section class="container" id="contact">
+  <div class="section-heading"><h2>Contact Us</h2></div>
+  <div class="article" style="text-align:center">
+    <p>Have a question, suggestion or business enquiry?</p>
+    <p><strong>Email:</strong> <a style="color:#2463eb" href="mailto:Khazamula480@gmail.com">Khazamula480@gmail.com</a></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="logo" style="color:white">SMART <span>CHOICE</span></div>
+  <p>Shop Smarter. Choose Better.</p>
+  <p>
+    <a href="#about">About</a> |
+    <a href="#privacy">Privacy Policy</a> |
+    <a href="#disclosure">Affiliate Disclosure</a> |
+    <a href="#contact">Contact</a>
+  </p>
+  <p>© <span id="year"></span> Smart Choice. All rights reserved.</p>
+</footer>
+
+<script>
+const searchInput = document.getElementById("searchInput");
+const filterButtons = document.querySelectorAll(".filter-btn");
+const products = document.querySelectorAll(".product");
+const noResults = document.getElementById("noResults");
+
+let selectedCategory = "all";
+
+function filterProducts() {
+  const search = searchInput.value.toLowerCase().trim();
+  let visibleCount = 0;
+
+  products.forEach(product => {
+    const matchesCategory =
+      selectedCategory === "all" ||
+      product.dataset.category === selectedCategory;
+
+    const matchesSearch =
+      product.textContent.toLowerCase().includes(search);
+
+    const show = matchesCategory && matchesSearch;
+    product.style.display = show ? "block" : "none";
+
+    if (show) visibleCount++;
+  });
+
+  noResults.style.display = visibleCount ? "none" : "block";
+}
+
+searchInput.addEventListener("input", filterProducts);
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    filterButtons.forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+    selectedCategory = button.dataset.category;
+    filterProducts();
+  });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
+
 
